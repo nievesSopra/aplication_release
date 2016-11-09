@@ -12,6 +12,8 @@ REGEX_TAG="(.*)-TESTME"
   AUXBRANCH=${VERSION}-Branch01;
   echo "${VERSION}-Branch01"
 
+  echo “TRAVIS TAG: ${TRAVIS_TAG}”
+
   # POST /repos/:owner/:repo/releases
 #curl -s -k -X POST -H "Content-Type: application/json" https://${TRAVIS_TOKEN}@github.com/nievesSopra/sauce-project.git -d '{"tag_name": "1234", "target_commitish": "master", "name": "1234", "body": "Release of version 1234", "draft": false, "prerelease": false}'
 #curl --data '{"tag_name": "v1.0.0","target_commitish": "master","name": "v1.0.0","body": "Release of version 1.0.0","draft": false,"prerelease": false}' https://api.github.com/repos/:owner/:repository/releases?access_token=:access_token
