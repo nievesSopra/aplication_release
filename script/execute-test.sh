@@ -9,6 +9,7 @@ REGEX_TAG="(.*)-TESTME"
 if [[ "${TRAVIS_TAG}" =~ ${REGEX_TAG} ]]; then
   # Save version
   #VERSION=${BASH_REMATCH[1]};
+  VERSION=${TRAVIS_TAG};
   echo "${VERSION}"
   echo “TRAVIS TAG: ${TRAVIS_TAG} TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG}”
 
