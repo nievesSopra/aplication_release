@@ -13,7 +13,14 @@ REGEX_TAG="(.*)-TESTME"
   echo "${VERSION}-Branch01"
 
   # POST /repos/:owner/:repo/releases
-curl -s -k -X POST -H "Content-Type: application/json" https://${TRAVIS_TOKEN}@github.com/nievesSopra/sauce-project.git -d '{"tag_name": "1234", "target_commitish": "master", "name": "1234", "body": "Release of version 1234", "draft": false, "prerelease": false}'
+#curl -s -k -X POST -H "Content-Type: application/json" https://${TRAVIS_TOKEN}@github.com/nievesSopra/sauce-project.git -d '{"tag_name": "1234", "target_commitish": "master", "name": "1234", "body": "Release of version 1234", "draft": false, "prerelease": false}'
+#curl --data '{"tag_name": "v1.0.0","target_commitish": "master","name": "v1.0.0","body": "Release of version 1.0.0","draft": false,"prerelease": false}' https://api.github.com/repos/:owner/:repository/releases?access_token=:access_token
+curl --data '{"tag_name": "v1.0.0","target_commitish": "master","name": "v1.0.0","body": "Release of version 1.0.0","draft": false,"prerelease": false}' https://api.github.com/repos/:nievesSopra/:sauce-project/releases?access_token=:${TRAVIS_TOKEN}
+
+
+#API_JSON=$(printf '{"tag_name": "v%s","target_commitish": "master","name": "v%s","body": "Release of version %s","draft": false,"prerelease": false}' $VERSION $VERSION $VERSION)
+#curl --data "$API_JSON" https://api.github.com/repos/:owner/:repository/releases?access_token=:access_token
+
  
   # Configurating git (user.mail and user.name)
 #  echo "Configurate git"
