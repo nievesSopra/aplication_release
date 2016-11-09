@@ -6,7 +6,7 @@ REGEX_TAG="(.*)-TESTME"
 #REGEX_TAG="(.*)-t(.*)"
 
 
-if [[ "${TRAVIS_TAG}" =~ ${REGEX_TAG} ]]; then
+#if [[ "${TRAVIS_TAG}" =~ ${REGEX_TAG} ]]; then
   # Save version
   VERSION=${BASH_REMATCH[1]}-Results;
   AUXBRANCH=${VERSION}-Branch01;
@@ -48,4 +48,4 @@ curl -s -k -X POST -H "Content-Type: application/json" https://${TRAVIS_TOKEN}@g
   #Delete the branch we created before (branch01):
 #  git push test-output --delete ${VERSION}-Branch01
 
-fi
+#fi
