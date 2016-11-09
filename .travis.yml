@@ -6,9 +6,9 @@ before_deploy:
     on:
       tags: true
 
-#script:
-#    - chmod +x ./script/execute-test.sh;
-#    - ./script/execute-test.sh
+script:
+    - chmod +x ./script/execute-test.sh;
+    - ./script/execute-test.sh
 
 addons:
     username: "travis-arq-testing"
