@@ -1,9 +1,9 @@
 
 {
-  "tag_name": "v1.0.0-TESTME",
+  "tag_name": "v%s",
   "target_commitish": "master",
-  "name": "v1.0.0-TESTME",
-  "body": "TESTME - Description of the release",
+  "name": "v%s",
+  "body": "Release of version %s",
   "draft": false,
   "prerelease": false
 }
