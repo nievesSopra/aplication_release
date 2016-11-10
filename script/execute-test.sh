@@ -6,14 +6,14 @@ REGEX_TAG="(.*)-TESTME"
 #REGEX_TAG="(.*)-t(.*)"
 
 
-if [[ "${TRAVIS_TAG}" =~ ${REGEX_TAG} ]]; then
+#if [[ "${TRAVIS_TAG}" =~ ${REGEX_TAG} ]]; then
   # Save version
   #VERSION=${BASH_REMATCH[1]};
   VERSION=${TRAVIS_TAG};
   echo "${VERSION}"
   echo "TRAVIS TAG: ${TRAVIS_TAG} TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG}"
-  VAR1=$(echo ${TRAVIS_REPO_SLUG} | cut -f1 -d-)
-  VAR2=$(echo ${TRAVIS_REPO_SLUG} | cut -f2 -d-)
+  VAR1=$(echo ${TRAVIS_REPO_SLUG} | cut -f1 -d/)
+  VAR2=$(echo ${TRAVIS_REPO_SLUG} | cut -f2 -d/)
   echo "VAR1=${VAR1} VAR2=${VAR2}"
 
   # POST /repos/:owner/:repo/releases
@@ -24,6 +24,6 @@ if [[ "${TRAVIS_TAG}" =~ ${REGEX_TAG} ]]; then
 #curl -u travis-arq-testing:${TRAVIS_TOKEN} --request POST --data "$API_JSON" https://api.github.com/repos/nievesSopra/sauce-project/releases
 
 
-curl -u travis-arq-testing:${TRAVIS_TOKEN} --request POST --data @create_release_automation.json ${VERSION} ${VERSION} ${VERSION} https://api.github.com/repos/nievesSopra/sauce-project/releases
+#curl -u travis-arq-testing:${TRAVIS_TOKEN} --request POST --data @create_release_automation.json ${VERSION} ${VERSION} ${VERSION} https://api.github.com/repos/nievesSopra/sauce-project/releases
 
-fi
+#fi
