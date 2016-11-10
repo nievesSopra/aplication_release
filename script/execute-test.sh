@@ -12,6 +12,9 @@ if [[ "${TRAVIS_TAG}" =~ ${REGEX_TAG} ]]; then
   VERSION=${TRAVIS_TAG};
   echo "${VERSION}"
   echo "TRAVIS TAG: ${TRAVIS_TAG} TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG}"
+  VAR1=$(echo ${TRAVIS_REPO_SLUG} | cut -f1 -d-)
+  VAR2=$(echo ${TRAVIS_REPO_SLUG} | cut -f2 -d-)
+  echo "VAR1=${VAR1} VAR2=${VAR2}"
 
   # POST /repos/:owner/:repo/releases
 #curl -u travis-arq-testing:${TRAVIS_TOKEN} --request POST --data '{"tag_name": "v1.0.2-curl","target_commitish": "master","name": "v1.0.2-curl","body": "Release of version 1.0.2","draft": false,"prerelease": false}' https://api.github.com/repos/nievesSopra/sauce-project/releases
