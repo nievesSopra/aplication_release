@@ -9,7 +9,4 @@ before_deploy:
 script:
     - chmod +x ./script/execute-test.sh;
     - ./script/execute-test.sh
-
-addons:
-    username: "travis-arq-testing"
-    access_key: "dfcd0c77-25c6-42ba-92f3-d85e08bb036c"
+    
