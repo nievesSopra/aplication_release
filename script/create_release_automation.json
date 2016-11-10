@@ -1,9 +1,9 @@
 
 {
-  "tag_name": "v%s",
+  "tag_name": "v${VERSION}",
   "target_commitish": "master",
-  "name": "v%s",
-  "body": "Release of version %s",
+  "name": "v${VERSION}",
+  "body": "Release of version ${VERSION}",
   "draft": false,
   "prerelease": false
 }
