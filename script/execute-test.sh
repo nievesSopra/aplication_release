@@ -23,6 +23,6 @@ if [[ "${TRAVIS_TAG}" =~ ${REGEX_TAG} ]]; then
 #curl -u travis-arq-testing:${TRAVIS_TOKEN} --request POST --data "$API_JSON" https://api.github.com/repos/nievesSopra/sauce-project/releases
 
 JSON_FILE=$(cat script/create_release_automation.json | sed -e "s/\${VERSION}/${VERSION}/g")
-curl -u travis-arq-testing:${TRAVIS_TOKEN} --request POST --data "${JSON_FILE}" https://api.github.com/repos/nievesSopra/sauce-project/releases
+curl -u ${GITHUB_USER}:${TRAVIS_TOKEN} --request POST --data "${JSON_FILE}" https://api.github.com/repos/${GITHUB_USER}/sauce-project/releases
 
 fi
