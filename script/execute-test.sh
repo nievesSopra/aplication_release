@@ -16,12 +16,6 @@ if [[ "${TRAVIS_TAG}" =~ ${REGEX_TAG} ]]; then
   echo "REPO_NAME=${REPO_NAME}"
 
 # POST /repos/:owner/:repo/releases
-#curl -u travis-arq-testing:${TRAVIS_TOKEN} --request POST --data '{"tag_name": "v1.0.2-curl","target_commitish": "master","name": "v1.0.2-curl","body": "Release of version 1.0.2","draft": false,"prerelease": false}' https://api.github.com/repos/nievesSopra/sauce-project/releases
-
-# Create release in sauce-project repository
-#API_JSON=$(printf '{"tag_name": "v%s","target_commitish": "master","name": "v%s","body": "Release of version %s","draft": false,"prerelease": false}' $VERSION $VERSION $VERSION)
-#curl -u travis-arq-testing:${TRAVIS_TOKEN} --request POST --data "$API_JSON" https://api.github.com/repos/nievesSopra/sauce-project/releases
-
 JSON_FILE=$(cat script/create_release_automation.json | sed -e "s/\${VERSION}/${VERSION}/g")
 curl -u ${GITHUB_USER}:${TRAVIS_TOKEN} --request POST --data "${JSON_FILE}" https://api.github.com/repos/${GITHUB_USER}/sauce-project/releases
 
